@@ -9,7 +9,7 @@
 }
 
 :root {
-  --color-primary: #b1caff;
+  --color-primary: #3d6ded;
   --color-dark: #000;
   --color-light: #fff;
   --color-add2: #ff0;
@@ -163,7 +163,7 @@ body {
 
 .accordion-tab {
   height: 3rem;
-  border: 0.2rem solid #3d6ded;
+  border: 0.2rem solid var(--color-primary);
   border-radius: 2.5rem;
   padding: 1.5rem;
   margin-bottom: 2.0rem;
@@ -182,6 +182,7 @@ body {
   font-family: var(--font-family-bold);
   margin: 0;
   grid-column: 1 / 2;
+  transition: 300ms ease-in-out;
 }
 
 .tab-label__input {
@@ -190,45 +191,55 @@ body {
 
 .tab-label__icon {
   display: block;
-  content: "";
+  fill: var(--color-dark);
   width: 2.5rem;
   height: 2.5rem;
-  background-image: url(assets/images/plus.svg);
-  background-size: cover;
+  opacity: 0;
   transition: 300ms ease-in-out;
 }
 
 .tab-label__content {
   grid-column: 1 / 3;
   overflow: hidden;
-  /* height: 0; */
   line-height: 0;
 }
 
 .tab-label__content-img {
   width: 100%;
   border-radius: 13px;
-  /* height: 0; */
-  /* transition: 300ms ease-in-out; */
 }
 
-/* .accordion-container input[type="checkbox"]:checked ~ .tab-label__icon {
-  transform: rotate(135deg);
-}
-
-.accordion-container input[type="checkbox"]:checked ~ .tab-label__content {
-  height: auto;
-}
-
-.accordion-container input[type="checkbox"]:checked ~ .tab-label__content img {
-  height: auto;
-} */
-
-
-.accordion-container input[type="checkbox"]:checked + .accordion-tab .tab-label__icon {
-  transform: rotate(135deg);
-}
+/* Click */
 
 .accordion-container input[type="checkbox"]:checked + .accordion-tab {
   height: var(--container-height);
+}
+
+.accordion-container input[type="checkbox"]:checked + .accordion-tab .tab-label__text {
+  color: var(--color-primary);
+}
+
+.accordion-container input[type="checkbox"]:checked + .accordion-tab .tab-label__icon {
+  opacity: 1;
+  transform: rotate(135deg);
+  fill: var(--color-primary);
+}
+
+/* Hover */
+
+.container:hover .tab-label__icon {
+  opacity: 1;
+}
+
+.accordion-tab:hover {
+  height: var(--container-height);
+}
+
+.accordion-tab:hover .tab-label__text {
+  color: var(--color-primary);
+}
+
+.accordion-tab:hover .tab-label__icon {
+  transform: rotate(135deg);
+  fill: var(--color-primary);
 }
