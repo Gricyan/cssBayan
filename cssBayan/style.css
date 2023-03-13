@@ -56,8 +56,9 @@ body {
   caret-color: transparent;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   min-height: 100vh;
+  padding-top: 5%;
 }
 
 @keyframes pulse-animation {
@@ -150,7 +151,58 @@ body {
   box-shadow: 0 0 2rem #00000060;
 }
 
-.heading-h1 {
+.header-container h1 {
   width: fit-content;
   margin: 0.67em auto;
+}
+
+/* Tabs */
+
+.accordion-tab {
+  border: 2px solid #3d6ded;
+  border-radius: 25px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.tab-label {
+  display: grid;
+  grid-template-columns: auto 25px;
+}
+
+.tab-label__text {
+  margin: 0;
+  grid-column: 1 / 2;
+}
+
+.tab-label__input {
+  display: none;
+}
+
+.tab-label__icon {
+  display: block;
+  content: "";
+  width: 25px;
+  height: 25px;
+  background-image: url(assets/images/plus.svg);
+  background-size: cover;
+  transition: 300ms ease-in-out;
+}
+
+.tab-label__content {
+  grid-column: 1 / 3;
+}
+
+.tab-label__content-img {
+  width: 100%;
+  height: 0;
+  transition: 300ms ease-in-out;
+}
+
+.accordion-container input[type="checkbox"]:checked ~ .tab-label__icon {
+  transform: rotate(135deg);
+}
+
+.accordion-container input[type="checkbox"]:checked ~ .tab-label__content img {
+  height: auto;
 }
